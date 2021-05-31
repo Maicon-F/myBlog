@@ -43,17 +43,9 @@ public class Postagem {
 	private Tema tema;
 	
 	
-	public List<Usuario> getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(List<Usuario> usuario) {
-		this.usuario = usuario;
-	}
-
-	@OneToMany(mappedBy = "postagem", cascade = CascadeType.REMOVE)
+	@ManyToOne
 	@JsonIgnoreProperties ("postagem")
-	private List<Usuario> usuario;
+	private Usuario usuario;
 	
 	
 	public long getId() {
@@ -100,4 +92,13 @@ public class Postagem {
 		this.tema = tema;
 	}
 
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	
 }
