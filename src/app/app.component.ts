@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuhService } from './service/auh.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'blogPessoal';
+constructor (
+  public auth:AuhService // injseção de dependencia para poder usar os dados de logado dentro do html
+){}
 }
