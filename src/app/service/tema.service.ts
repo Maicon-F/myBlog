@@ -23,4 +23,16 @@ export class TemaService {
     return this.http.get<Tema[]>('https://meucantinho.herokuapp.com/tema',  {headers: new HttpHeaders().set('Authorization', environment.token)})
   }
 
+  getByIdTemas(id: number): Observable<Tema>{
+    return this.http.get<Tema>('https://meucantinho.herokuapp.com/tema/${id}', {headers: new HttpHeaders().set('Authorization', environment.token)})
+  }
+
+  putTema(tema: Tema): Observable<Tema>{
+    return this.http.put<Tema>('https://meucantinho.herokuapp.com/tema', tema, this.token)
+  }
+
+  deleteTema(id: number){
+    return this.http.delete('https://meucantinho.herokuapp.com/tema/${id}', {headers: new HttpHeaders().set('Authorization', environment.token)})
+  }
+
 }
