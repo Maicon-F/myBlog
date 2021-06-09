@@ -19,7 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/postagens")
-@CrossOrigin("*")
+//@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:4200")
 public class PostagemController {
 
 	@Autowired
