@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/model/User';
+import { AlertasService } from 'src/app/service/alertas.service';
 import { AuhService } from 'src/app/service/auh.service';
 
 @Component({
@@ -20,7 +21,8 @@ export class UserEditComponent implements OnInit {
   constructor(
     private authService: AuhService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alertas: AlertasService
 
     
   ) { }
@@ -52,7 +54,7 @@ atualizar(){
     this.authService.cadastrar(this.user).subscribe((resp: User) =>{
       this.user = resp
       this.router.navigate(['/inicio'])
-      alert('Usuário atualizado com sucesso!')
+      this.alertas.showAlertSuccess('Usuário atualizado com sucesso!')
       })
 
   }
