@@ -40,10 +40,7 @@ public class UsuarioController {
 				.body(usuarioService.cadastrarUsuario(usuario));
 	}
 	
-	@GetMapping("/{id}")
-	public ResponseEntity<Usuario> getById(@PathVariable long id){
-		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
-	}
+	
 	
 	
 }
