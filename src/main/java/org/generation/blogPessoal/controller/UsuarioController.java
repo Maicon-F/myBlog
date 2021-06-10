@@ -2,10 +2,8 @@ package org.generation.blogPessoal.controller;
 
 import java.util.Optional;
 
-import org.generation.blogPessoal.model.Tema;
 import org.generation.blogPessoal.model.UserLogin;
 import org.generation.blogPessoal.model.Usuario;
-import org.generation.blogPessoal.repository.TemaRepository;
 import org.generation.blogPessoal.repository.UsuarioRepository;
 import org.generation.blogPessoal.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/usuarios")
-@CrossOrigin(origins = "http://localhost:4200")
-//@CrossOrigin(origins ="*",allowedHeaders ="*")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins ="*",allowedHeaders ="*")
 public class UsuarioController {
 
 	
