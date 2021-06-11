@@ -23,6 +23,10 @@ export class EntrarComponent implements OnInit {
    { }
 
   ngOnInit(){
+    if (environment.token =='') {
+      this.alertas.showAlertInfo('Sua sessão expirou! Faça login novamente')
+      this.router.navigate(['/entrar'])
+     }
     window.scroll(0,0)
   }
 
@@ -34,6 +38,7 @@ export class EntrarComponent implements OnInit {
       environment.nome = this.userLogin.nome
       environment.id = this.userLogin.id
       environment.foto = this.userLogin.foto
+      environment.tipo = this.userLogin.tipo
 
       console.log(environment.token)
       console.log(environment.nome)

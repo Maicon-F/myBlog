@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/model/User';
 import { AlertasService } from 'src/app/service/alertas.service';
 import { AuhService } from 'src/app/service/auh.service';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-user-edit',
@@ -16,18 +17,25 @@ export class UserEditComponent implements OnInit {
 
   confirmarSenha: string
   tipoUsuario: string
+
   
 
   constructor(
     private authService: AuhService,
     private router: Router,
     private route: ActivatedRoute,
-    private alertas: AlertasService
+    private alertas: AlertasService,
+    
 
     
   ) { }
 
   ngOnInit() {
+    if (environment.token =='') {
+      this.alertas.showAlertInfo('Sua sessão expirou! Faça login novamente')
+      this.router.navigate(['/entrar'])
+     }
+
     window.scroll(0,0)
 
     this.idUser= this.route.snapshot.params['id']
@@ -48,7 +56,7 @@ atualizar(){
 
   this.user.tipo=this.tipoUsuario
   if(this.user.senha != this.confirmarSenha){
-    alert('As senhas estão incorretas!')
+    this.alertas.showAlertDanger('As senhas estão incorretas!')
 
   }else{
     this.authService.cadastrar(this.user).subscribe((resp: User) =>{

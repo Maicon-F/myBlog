@@ -23,9 +23,10 @@ export class TemaEditComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if(environment.token ==''){
+    if (environment.token =='') {
+      this.alertas.showAlertInfo('Sua sessão expirou! Faça login novamente')
       this.router.navigate(['/entrar'])
-    }
+     }
 
     let id = this.route.snapshot.params['id']
     this.findByIdTema(id)

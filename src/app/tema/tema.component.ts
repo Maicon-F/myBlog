@@ -5,6 +5,7 @@ import { CadastrarComponent } from '../cadastrar/cadastrar.component';
 import { Tema } from '../model/Tema';
 import { TemaService } from '../service/tema.service';
 import { AuhService } from '../service/auh.service';
+import { AlertasService } from '../service/alertas.service';
 
 @Component({
   selector: 'app-tema',
@@ -18,16 +19,22 @@ export class TemaComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private temaService: TemaService
+    private temaService: TemaService,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit() {
 
     if (environment.token =='') {
-      alert('Sua sessão expirou! Faça login novamente')
+      this.alertas.showAlertInfo('Sua sessão expirou! Faça login novamente')
       this.router.navigate(['/entrar'])
      }
      this.findAllTemas()
+
+     if (environment.tipo !== 'adm'){
+       this.alertas.showAlertInfo('Você precisa ser admnistrador para acessar essa rota!')
+       this.router.navigate(['/inicio'])
+     }
  }
 
  findAllTemas(){
