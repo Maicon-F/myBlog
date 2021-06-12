@@ -28,7 +28,7 @@ export class TemaService {
   }
 
   putTema(tema: Tema): Observable<Tema>{
-    return this.http.put<Tema>('http://localhost:8080/tema', tema, this.token)
+    return this.http.put<Tema>('http://localhost:8080/tema',tema, this.token)
   }
 
   deleteTema(id: number){
@@ -36,7 +36,7 @@ export class TemaService {
   }
 
   getByNomeTema(nome: String): Observable<Tema[]>{
-    return this.http.get<Tema[]>(`http://localhost:8080/postagens/tema/nome/${nome}`, this.token)
+    return this.http.get<Tema[]>(`http://localhost:8080/tema/nome/${nome}`, this.token)
 
   }
 

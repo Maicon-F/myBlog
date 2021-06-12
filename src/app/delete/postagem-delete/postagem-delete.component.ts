@@ -17,7 +17,6 @@ export class PostagemDeleteComponent implements OnInit {
   idPost: number
 
 
-
   constructor(
     private postagemService: PostagemService,
     private router: Router,
@@ -38,7 +37,10 @@ export class PostagemDeleteComponent implements OnInit {
   }
 
   findIdByPostagem(id: number){
-  }
+    this.postagemService.getByIdPostagens(id).subscribe((resp: Postagem)=>{
+      this.postagem = resp
+  })
+}
   
   
   apagarPostagem(){
