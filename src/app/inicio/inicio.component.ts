@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Postagem } from '../model/Postagem';
 import { Tema } from '../model/Tema';
@@ -48,10 +48,11 @@ export class InicioComponent implements OnInit {
       this.alertas.showAlertInfo('Sua sessão expirou! Faça login novamente')
       this.router.navigate(['/entrar'])
      }
-
     this.getAllTemas()
     this.getAllPostagens()
     this.findByIdUser()
+    this.findByTemaPostagens()
+    console.log(this.nomeTema)
   }
 
   getAllTemas(){
@@ -66,6 +67,7 @@ export class InicioComponent implements OnInit {
       this.tema = resp
     })
   }
+
 
   getAllPostagens(){
     this.postagemService.getAllPostagem().subscribe((resp:Postagem[])=>{
@@ -98,7 +100,6 @@ export class InicioComponent implements OnInit {
   }
 
   findByTituloPostagem(){
-
     if(this.tituloPost == ''){
       this.getAllPostagens()
     }else{
@@ -118,5 +119,7 @@ export class InicioComponent implements OnInit {
     })
   }
   }
+
+
 
 }
