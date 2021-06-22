@@ -19,15 +19,15 @@ export class AuhService {
   }
 
   entrar(userLogin:UserLogin):Observable <UserLogin>{
-    return this.http.post<UserLogin>('https://git.heroku.com/meucantinho/usuarios/logar', userLogin)
+    return this.http.post<UserLogin>('https://meucantinho.herokuapp.com/usuarios/logar', userLogin)
   }
 
   cadastrar(user:User):Observable <User>{
-    return this.http.post<User>('https://git.heroku.com/meucantinho/usuarios/cadastrar', user)
+    return this.http.post<User>('https://meucantinho.herokuapp.com/usuarios/cadastrar', user)
   }
 
   getByIdUser(id: number): Observable <User>{
-    return this.http.get<User>(`https://git.heroku.com/meucantinho/usuarios/${id}`)
+    return this.http.get<User>(`https://meucantinho.herokuapp.com/usuarios/${id}`)
   }
 
   logado(){
