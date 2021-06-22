@@ -23,10 +23,7 @@ export class EntrarComponent implements OnInit {
    { }
 
   ngOnInit(){
-    if (environment.token =='') {
-      this.alertas.showAlertInfo('Sua sessão expirou! Faça login novamente')
-      this.router.navigate(['/entrar'])
-     }
+
     window.scroll(0,0)
   }
 
