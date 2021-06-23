@@ -2,6 +2,7 @@ package org.generation.blogPessoal.seguranca;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -34,9 +35,13 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers("/usuarios/logar").permitAll()
 		.antMatchers("/usuarios/cadastrar").permitAll()
 		.antMatchers("/**").permitAll()
-		.antMatchers("/usuarios").permitAll()
+		.antMatchers(HttpMethod.GET,"/usuarios/{id}").permitAll()
 		.antMatchers("/tema").permitAll()
+		.antMatchers(HttpMethod.GET,"/tema/{id}").permitAll()
+		.antMatchers(HttpMethod.GET,"/tema/nome/{nome}").permitAll()
 		.antMatchers("/postagens").permitAll()
+		.antMatchers(HttpMethod.GET,"/postagens/{id}").permitAll()
+		.antMatchers(HttpMethod.GET,"/tema/nome/{nome}").permitAll()
 		.anyRequest().authenticated()
 		.and().httpBasic()
 		.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
