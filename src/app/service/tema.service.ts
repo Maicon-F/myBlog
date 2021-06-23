@@ -16,7 +16,7 @@ export class TemaService {
   }
 
   postTema(tema: Tema): Observable<Tema>{
-    return this.http.post<Tema>('meucantinho.herokuapp.com/tema', tema,  this.token)
+    return this.http.post<Tema>('https://meucantinho.herokuapp.com/tema', tema,  this.token)
   }
 
   getAllTemas(): Observable<Tema[]>{

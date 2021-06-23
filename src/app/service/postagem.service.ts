@@ -16,7 +16,7 @@ export class PostagemService {
   }
 
   postPostagem(postagem: Postagem): Observable<Postagem>{
-    return this.http.post<Postagem>('https://meucantinho.herokuapp.com/postagens', postagem,  {headers: new HttpHeaders().set('Authorization', environment.token)})
+    return this.http.post<Postagem>('https://meucantinho.herokuapp.com/postagens', postagem, this.token)
   }
 
   getAllPostagem(): Observable<Postagem[]>{
