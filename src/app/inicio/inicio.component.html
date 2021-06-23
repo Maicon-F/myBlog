@@ -106,7 +106,7 @@
       </div>
 
       <div class="card-columns">
-        <div class="card text-center" *ngFor='let item of user.postagem | orderBy: key : reverse'>
+        <div class="card text-center" *ngFor='let item of listaTemas | orderBy: key : reverse'>
           <div class="card-body">
             <h5 class="card-title m-0">{{item.titulo}}</h5>
             <small class="text-muted">Tema: {{item.tema.descricao}}</small>
