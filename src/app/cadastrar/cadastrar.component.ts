@@ -34,10 +34,8 @@ export class CadastrarComponent implements OnInit {
   }
 
   confirmSenha(event:any){
-    if (this.confirmarSenha != event.target.value){
-      this.alertas.showAlertDanger('Senhas diferentes.')
+    this.confirmarSenha = event.target.value
     }
-  }
 
   tipoUser(event:any){
     this.tipoUsuario = event.target.value
@@ -47,7 +45,7 @@ export class CadastrarComponent implements OnInit {
 
     this.user.tipo=this.tipoUsuario
     if(this.user.senha != this.confirmarSenha){
-      alert('As senhas estão incorretas!')
+      this.alertas.showAlertDanger('As senhas estão incorretas!')
 
     }else{
       this.authService.cadastrar(this.user).subscribe((resp: User) =>{
@@ -92,4 +90,6 @@ export class CadastrarComponent implements OnInit {
   confirmaSenhas(event: any) {
     this.senhasIguais = this.validacao(this.user.senha != this.confirmarSenha, event)
   }
+
+
 }
