@@ -34,7 +34,9 @@ export class CadastrarComponent implements OnInit {
   }
 
   confirmSenha(event:any){
-    this.confirmarSenha = event.target.value
+    if (this.confirmarSenha != event.target.value){
+      this.alertas.showAlertDanger('Senhas diferentes.')
+    }
   }
 
   tipoUser(event:any){
