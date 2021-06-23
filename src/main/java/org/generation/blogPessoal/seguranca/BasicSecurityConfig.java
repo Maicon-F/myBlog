@@ -41,7 +41,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers(HttpMethod.GET,"/tema/nome/{nome}").permitAll()
 		.antMatchers("/postagens").permitAll()
 		.antMatchers(HttpMethod.GET,"/postagens/{id}").permitAll()
-		.antMatchers(HttpMethod.GET,"/tema/nome/{nome}").permitAll()
+		.antMatchers(HttpMethod.GET,"/postagens/titulo/{titulo}").permitAll()
 		.anyRequest().authenticated()
 		.and().httpBasic()
 		.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
