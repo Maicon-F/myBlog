@@ -12,9 +12,9 @@ Check the application on this [link](https://smblog.netlify.app/).
 
 <h2>Funcionalidades da aplicação: </h2>
 
-- [x] Cadastro/Atualização de usuário
-- [x] Login/Logout 
-- [x] Cadastro/Edição/Exclusão de Postagens e de Temas
+- [x] Cadastro/atualização de usuário
+- [x] Login/logout 
+- [x] Cadastro/edição/exclusão de postagens e de temas
 - [x] Filtro de postagens por tema
 
 
